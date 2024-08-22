@@ -1,0 +1,6 @@
+
+Howdy farmer!
+
+Thanks for downloading the free version, hope you enjoy it!
+
+-shubibubi

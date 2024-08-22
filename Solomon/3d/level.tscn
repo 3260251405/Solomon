@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://6puj6nto7q03"]
+
+[ext_resource type="PackedScene" uid="uid://4qv5asydkix3" path="res://3d/player.tscn" id="1_7oo3d"]
+[ext_resource type="MeshLibrary" uid="uid://cuybl00voq85j" path="res://tres/mesh.tres" id="2_cdkpr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylh06"]
+albedo_color = Color(0.194446, 0.144099, 0.00140147, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejyne"]
+albedo_color = Color(0.319388, 0.163433, 0.00475732, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a1sxl"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_fyaau"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_id5oq"]
+rough = true
+bounce = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_8d3q1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_coxxj"]
+points = PackedVector3Array(0.457871, 0.198079, 0.0157824, -0.48874, -0.0916874, -0.0451868, -0.471509, -0.137027, -0.0907015, 0.0763591, -0.333275, 0.364179, 0.136569, -0.332425, -0.346906, -0.151617, 0.471982, -0.0602459, -0.105347, 0.211936, 0.43966, -0.0450169, 0.198098, -0.456416, 0.409077, -0.151168, 0.242516, -0.271376, -0.377761, 0.181871, 0.41148, -0.075981, -0.27324, 0.198197, -0.456161, -0.044931, -0.240641, -0.331674, -0.285768, 0.227137, 0.25672, 0.363041, 0.227522, 0.423604, -0.135488, -0.37899, 0.0607022, 0.319462, -0.406747, 0.181049, -0.225691, -0.0146313, -0.0917695, 0.490229, -0.377855, 0.302793, 0.121712, 0.0462323, 0.456011, 0.198185, -0.227464, -0.0607863, -0.440348, 0.228455, 0.0607228, -0.439887, -0.0911376, -0.489246, -0.045174, 0.441865, -0.228216, -0.0449581, 0.317179, 0.241214, -0.300812, -0.0448487, 0.394737, -0.302955, -0.316348, -0.196222, 0.332551, 0.198442, -0.0304293, 0.457237, 0.0614714, -0.152246, -0.471307, 0.363089, 0.256708, 0.227079, 0.152134, -0.439489, 0.182379, -0.210725, 0.362276, 0.27223)
+
+[sub_resource type="Environment" id="Environment_qupd1"]
+background_mode = 1
+
+[node name="Level" type="Node3D"]
+
+[node name="LevelContainer" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Room" type="CSGCombiner3D" parent="LevelContainer"]
+
+[node name="Floor" type="CSGBox3D" parent="LevelContainer/Room"]
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_ylh06")
+
+[node name="Wall" type="CSGBox3D" parent="LevelContainer/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall2" type="CSGBox3D" parent="LevelContainer/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall3" type="CSGBox3D" parent="LevelContainer/Room"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 2, 0)
+size = Vector3(10, 3, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelContainer/Room/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+operation = 2
+size = Vector3(2, 3, 1)
+
+[node name="Wall4" type="CSGBox3D" parent="LevelContainer/Room"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 2, 2.5)
+size = Vector3(5, 3, 1)
+
+[node name="Celling" type="CSGBox3D" parent="LevelContainer/Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelContainer/Room/Celling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.5)
+operation = 2
+size = Vector3(3, 1, 2)
+
+[node name="Room2" type="CSGCombiner3D" parent="LevelContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Floor" type="CSGBox3D" parent="LevelContainer/Room2"]
+size = Vector3(10, 1, 10)
+
+[node name="Wall" type="CSGBox3D" parent="LevelContainer/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall2" type="CSGBox3D" parent="LevelContainer/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall4" type="CSGBox3D" parent="LevelContainer/Room2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 2, -3.93403e-07)
+size = Vector3(10, 3, 1)
+
+[node name="Celling" type="CSGBox3D" parent="LevelContainer/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_ejyne")
+
+[node name="Light" type="MeshInstance3D" parent="LevelContainer/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CylinderMesh_a1sxl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LevelContainer/Room2/Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+light_energy = 2.455
+shadow_enabled = true
+
+[node name="Room3" type="CSGCombiner3D" parent="LevelContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="Floor" type="CSGBox3D" parent="LevelContainer/Room3"]
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelContainer/Room3/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.5)
+operation = 2
+size = Vector3(3, 1, 2)
+
+[node name="Wall" type="CSGBox3D" parent="LevelContainer/Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall2" type="CSGBox3D" parent="LevelContainer/Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -4.5)
+size = Vector3(10, 3, 1)
+
+[node name="Wall3" type="CSGBox3D" parent="LevelContainer/Room3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 2, 0)
+size = Vector3(10, 3, 1)
+
+[node name="Wall4" type="CSGBox3D" parent="LevelContainer/Room3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 2, 2)
+size = Vector3(6, 3, 1)
+
+[node name="Celling" type="CSGBox3D" parent="LevelContainer/Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+size = Vector3(10, 1, 10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelContainer"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 6.5, 0)
+size = Vector3(10, 1, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_7oo3d")]
+transform = Transform3D(0.170209, 0, 0.985408, 0, 1, 0, -0.985408, 0, 0.170209, 9.34042, 11, -1.90282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fyaau")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh_library = ExtResource("2_cdkpr")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65530, 65531, 655361, 65529, 65531, 655361, 65528, 65531, 655361, 65527, 65531, 655361, 65526, 65531, 655361, 65525, 65531, 655361, 65524, 65531, 655361, 65523, 65531, 655361, 65522, 65531, 655361, 65521, 65531, 655361, 65520, 65531, 655361, 65519, 65531, 655361, 65518, 65531, 655361, 65517, 65531, 655361, 65517, 65532, 655361, 65517, 65533, 655361, 65517, 65534, 655361, 65517, 65535, 655361, 65517, 0, 655361, 65517, 1, 655361, 65517, 2, 655361, 65517, 3, 655361, 65517, 4, 655361, 65518, 4, 655361, 65519, 4, 655361, 65520, 4, 655361, 65521, 4, 655361, 65522, 4, 655361, 65523, 4, 655361, 65524, 4, 655361, 65525, 4, 655361, 65526, 4, 655361, 65527, 4, 655361, 65528, 4, 655361, 65529, 4, 655361, 65530, 4, 655361, 65530, 3, 655361, 65530, 2, 655361, 65530, 1, 655361, 65530, 0, 655361, 65530, 65535, 655361, 65530, 65534, 655361, 65530, 65533, 655361, 65530, 65532, 655361, 65529, 65532, 655361, 65528, 65532, 655361, 65527, 65532, 655361, 65526, 65532, 655361, 65525, 65532, 655361, 65524, 65532, 655361, 65523, 65532, 655361, 65522, 65532, 655361, 65521, 65532, 655361, 65520, 65532, 655361, 65519, 65532, 655361, 65519, 65533, 655361, 65518, 65533, 655361, 65518, 65532, 655361, 65520, 65533, 655361, 65521, 65533, 655361, 65522, 65533, 655361, 65523, 65533, 655361, 65524, 65533, 655361, 65525, 65533, 655361, 65526, 65533, 655361, 65527, 65533, 655361, 65528, 65533, 655361, 65529, 65533, 655361, 65529, 65534, 655361, 65529, 65535, 655361, 65528, 65534, 655361, 65527, 65534, 655361, 65526, 65534, 655361, 65525, 65534, 655361, 65524, 65534, 655361, 65523, 65534, 655361, 65522, 65534, 655361, 65521, 65534, 655361, 65520, 65534, 655361, 65519, 65534, 655361, 65518, 65534, 655361, 65518, 65535, 655361, 65519, 65535, 655361, 65520, 65535, 655361, 65521, 65535, 655361, 65522, 65535, 655361, 65523, 65535, 655361, 65524, 65535, 655361, 65525, 65535, 655361, 65526, 65535, 655361, 65527, 65535, 655361, 65528, 65535, 655361, 65529, 0, 655361, 65528, 0, 655361, 65527, 0, 655361, 65526, 0, 655361, 65525, 0, 655361, 65524, 0, 655361, 65523, 0, 655361, 65522, 0, 655361, 65521, 0, 655361, 65520, 0, 655361, 65519, 0, 655361, 65518, 0, 655361, 65518, 1, 655361, 65518, 2, 655361, 65519, 2, 655361, 65520, 2, 655361, 65521, 2, 655361, 65522, 2, 655361, 65523, 2, 655361, 65524, 2, 655361, 65525, 2, 655361, 65526, 2, 655361, 65527, 2, 655361, 65528, 2, 655361, 65529, 2, 655361, 65529, 1, 655361, 65528, 1, 655361, 65527, 1, 655361, 65526, 1, 655361, 65525, 1, 655361, 65524, 1, 655361, 65523, 1, 655361, 65522, 1, 655361, 65521, 1, 655361, 65520, 1, 655361, 65519, 1, 655361, 65518, 3, 655361, 65519, 3, 655361, 65520, 3, 655361, 65521, 3, 655361, 65522, 3, 655361, 65523, 3, 655361, 65524, 3, 655361, 65525, 3, 655361, 65526, 3, 655361, 65527, 3, 655361, 65528, 3, 655361, 65529, 3, 655361, 131066, 65531, 655360, 131065, 65531, 655360, 131064, 65531, 655360, 131063, 65531, 655360, 131062, 65531, 655360, 131061, 65531, 655360, 131060, 65531, 655360, 131059, 65531, 655360, 131058, 65531, 655360, 131057, 65531, 655360, 131056, 65531, 655360, 131055, 65531, 655360, 131054, 65531, 655360, 131053, 65531, 655360, 131053, 65532, 655360, 131053, 65533, 655360, 131053, 65534, 655360, 131053, 65535, 655360, 131053, 0, 655360, 131053, 1, 655360, 131053, 2, 655360, 131053, 3, 655360, 131053, 4, 655360, 131054, 4, 655360, 131055, 4, 655360, 131056, 4, 655360, 131057, 4, 655360, 131058, 4, 655360, 131059, 4, 655360, 131060, 4, 655360, 131061, 4, 655360, 131062, 4, 655360, 131063, 4, 655360, 131064, 4, 655360, 131065, 4, 655360, 131066, 4, 655360, 131066, 3, 655360, 131066, 2, 655360, 131066, 65532, 655360, 131066, 65533, 655360, 131066, 65534, 655360, 131060, 65532, 655360, 131060, 65533, 655360, 131060, 65534, 655360, 131060, 65535, 655360, 131059, 65535, 655360, 131058, 65535, 655360, 131057, 65535, 655360, 131058, 3, 655360, 131058, 2, 655360, 131059, 2, 655360, 131060, 2, 655360, 131061, 2, 655360, 131062, 2, 655360, 131063, 65532, 655360, 131063, 65533, 655360, 131063, 65534, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 6, 0)
+mass = 0.15
+physics_material_override = SubResource("PhysicsMaterial_id5oq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_8d3q1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("ConvexPolygonShape3D_coxxj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qupd1")

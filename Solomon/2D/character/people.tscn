@@ -1,0 +1,291 @@
+[gd_scene load_steps=31 format=3 uid="uid://c51an3gq6jtuc"]
+
+[ext_resource type="Script" path="res://2D/script/people.gd" id="1_igt5g"]
+[ext_resource type="PackedScene" uid="uid://d315ha454hp0x" path="res://2D/inventory/window.tscn" id="2_4rdj5"]
+[ext_resource type="Script" path="res://2D/character/StateMachine.gd" id="3_p3eeu"]
+[ext_resource type="Script" path="res://2D/character/Idle.gd" id="4_424lk"]
+[ext_resource type="Texture2D" uid="uid://xmrnxbrgyi5c" path="res://assets/survival/inventory-slot.png" id="5_jaxes"]
+[ext_resource type="Texture2D" uid="uid://bm5poibso0kuh" path="res://assets/rpg/people1.png" id="5_mu3lp"]
+[ext_resource type="PackedScene" uid="uid://elc4dl67vyrs" path="res://expression.tscn" id="5_rbjax"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20j7g"]
+radius = 24.0208
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3tn3"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rn4q"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4tp0p"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wna38"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm6w0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gklem"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1rn4q")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4tp0p")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wna38")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_jm6w0")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ardkt"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tdch"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bdam"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilvjw"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7aj7m"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ardkt")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7tdch")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4bdam")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ilvjw")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veyhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhyxk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mwu0"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3y1n6"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_gklem")
+states/Idle/position = Vector2(359, 100)
+states/Start/position = Vector2(199, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7aj7m")
+states/Walk/position = Vector2(536, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veyhp"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_hhyxk"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3mwu0")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnery"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0q0i"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.381703, 0.381703, 0.381703, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 2.0
+expand_margin_bottom = 1.0
+shadow_size = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oihh3"]
+atlas = ExtResource("5_mu3lp")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h47k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqqfv"]
+bg_color = Color(0.917647, 0.45098, 0.0745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkbbd"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pbbs"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="People" type="CharacterBody2D" groups=["people"]]
+z_index = 5
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_igt5g")
+
+[node name="InteraceArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteraceArea"]
+shape = SubResource("CircleShape2D_20j7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_mu3lp")
+hframes = 4
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_c3tn3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_3y1n6")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(-0.00160003, 0.957447)
+parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_p3eeu")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_424lk")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+
+[node name="Attack" type="Node" parent="StateMachine"]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+
+[node name="Expression" parent="." instance=ExtResource("5_rbjax")]
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+z_index = 6
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -60.0
+offset_right = 116.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_bnery")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+layout_mode = 2
+offset_right = 86.0
+offset_bottom = 135.0
+texture = ExtResource("5_jaxes")
+region_rect = Rect2(1, 1, 14, 14)
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 2
+offset_right = 86.0
+offset_bottom = 135.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_r0q0i")
+
+[node name="Picture" type="Sprite2D" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Panel"]
+unique_name_in_owner = true
+position = Vector2(14, 25)
+texture = SubResource("AtlasTexture_oihh3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "姓名:菜虚坤"
+
+[node name="Age" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "年龄:12"
+
+[node name="State" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "状态："
+
+[node name="Window" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("2_4rdj5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Bar" type="Node2D" parent="."]
+position = Vector2(0, -42)
+
+[node name="HvBar" type="ProgressBar" parent="Bar"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 14.0
+offset_bottom = -4.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_4h47k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pqqfv")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="HpBar" type="ProgressBar" parent="Bar"]
+offset_left = -16.0
+offset_right = 14.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rkbbd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4pbbs")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Node2D" parent="."]
+
+[node name="HvTimer" type="Timer" parent="Timer"]
+wait_time = 0.1
+autostart = true
+
+[node name="AgeTimer" type="Timer" parent="Timer"]
+wait_time = 60.0
+autostart = true
+
+[connection signal="area_entered" from="InteraceArea" to="." method="_on_interace_area_area_entered"]
+[connection signal="area_exited" from="InteraceArea" to="." method="_on_interace_area_area_exited"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://57o0fasoewrd"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_0fk1a"]
+[ext_resource type="Texture2D" uid="uid://bkxmal0w3de0g" path="res://assets/survival/apple-icon.png" id="2_qvafi"]
+
+[resource]
+script = ExtResource("1_0fk1a")
+texture = ExtResource("2_qvafi")
+name = "Apple"
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+description = "能够补充体力的红苹果"

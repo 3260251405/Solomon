@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://blq8i0bgl5be0"]
+
+[ext_resource type="Script" path="res://2D/world_2.gd" id="1_io0f1"]
+[ext_resource type="TileSet" uid="uid://c7fsrij6o3hh5" path="res://tres/tileset.tres" id="1_o1150"]
+[ext_resource type="PackedScene" uid="uid://1sixk7mi65so" path="res://2D/character/player.tscn" id="3_ekvns"]
+
+[node name="World2" type="Node2D"]
+script = ExtResource("1_io0f1")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_o1150")
+format = 2
+layer_0/name = "Ground"
+layer_1/name = "Environment"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 5
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("3_ekvns")]

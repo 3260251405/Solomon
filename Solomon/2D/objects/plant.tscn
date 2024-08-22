@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://4wvb76qjjq2a"]
+
+[ext_resource type="Script" path="res://2D/script/plant.gd" id="1_0pbek"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="2_0vmfs"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="3_3w6sm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4vea"]
+atlas = ExtResource("2_0vmfs")
+region = Rect2(176, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l082g"]
+atlas = ExtResource("2_0vmfs")
+region = Rect2(160, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf3yr"]
+atlas = ExtResource("2_0vmfs")
+region = Rect2(144, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgcu1"]
+atlas = ExtResource("3_3w6sm")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nf12"]
+atlas = ExtResource("3_3w6sm")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdi68"]
+atlas = ExtResource("3_3w6sm")
+region = Rect2(208, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pum65"]
+atlas = ExtResource("3_3w6sm")
+region = Rect2(224, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8v51"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4vea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l082g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf3yr")
+}],
+"loop": false,
+"name": &"carrot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgcu1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nf12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdi68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pum65")
+}],
+"loop": false,
+"name": &"tomato",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_476yp"]
+
+[node name="Plant" type="Area2D" groups=["food", "plant"]]
+z_index = 4
+position = Vector2(0, -10)
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_0pbek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y8v51")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_476yp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

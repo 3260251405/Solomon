@@ -1,0 +1,150 @@
+[gd_scene load_steps=24 format=3 uid="uid://cfwcmaiyqclu6"]
+
+[ext_resource type="PackedScene" uid="uid://c51an3gq6jtuc" path="res://2D/character/people.tscn" id="1_conly"]
+[ext_resource type="Script" path="res://2D/script/npc.gd" id="2_q61cg"]
+[ext_resource type="AnimationLibrary" uid="uid://c1hqdtf2v7ojq" path="res://npc_anim.res" id="3_p1e6w"]
+[ext_resource type="Script" path="res://2D/character/NPC_Idle.gd" id="4_hfl40"]
+[ext_resource type="Script" path="res://2D/character/NPCWalk.gd" id="5_lvhcx"]
+[ext_resource type="Script" path="res://2D/character/NPCFind.gd" id="6_k6jxe"]
+[ext_resource type="PackedScene" uid="uid://deev10kc4u1uj" path="res://2D/objects/hurt_box.tscn" id="6_l4sva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8t7u"]
+radius = 235.915
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rn4q"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4tp0p"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wna38"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm6w0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gklem"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1rn4q")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4tp0p")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wna38")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_jm6w0")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ardkt"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tdch"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bdam"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilvjw"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7aj7m"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ardkt")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7tdch")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4bdam")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ilvjw")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veyhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhyxk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mwu0"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kav0l"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_gklem")
+states/Idle/position = Vector2(359, 100)
+states/Start/position = Vector2(199, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7aj7m")
+states/Walk/position = Vector2(536, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veyhp"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_hhyxk"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3mwu0")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1dp7"]
+radius = 300.042
+
+[node name="Npc" instance=ExtResource("1_conly")]
+collision_layer = 8
+collision_mask = 15
+input_pickable = true
+script = ExtResource("2_q61cg")
+
+[node name="FindArea" type="Area2D" parent="." index="0"]
+collision_layer = 0
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FindArea" index="0"]
+position = Vector2(0, -20)
+shape = SubResource("CircleShape2D_a8t7u")
+
+[node name="CollisionShape2D" parent="InteraceArea" index="0"]
+position = Vector2(0, -12)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -25)
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, -8)
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": ExtResource("3_p1e6w")
+}
+
+[node name="AnimationTree" parent="." index="5"]
+tree_root = SubResource("AnimationNodeStateMachine_kav0l")
+
+[node name="StateMachine" parent="." index="6"]
+position = Vector2(-2, -6)
+
+[node name="Idle" parent="StateMachine" index="0"]
+script = ExtResource("4_hfl40")
+
+[node name="Walk" parent="StateMachine" index="1"]
+script = ExtResource("5_lvhcx")
+
+[node name="Find" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("6_k6jxe")
+
+[node name="NavigationObstacle2D" parent="." index="7"]
+position = Vector2(0, -15)
+radius = 15.0
+
+[node name="Expression" parent="." index="8"]
+offset_top = -65.0
+offset_bottom = -17.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="9"]
+target_desired_distance = 4.0
+
+[node name="Panel" parent="." index="10"]
+visible = false
+offset_top = -80.0
+offset_bottom = 55.0
+
+[node name="AgeTimer" parent="Timer" index="1"]
+wait_time = 600.0
+
+[node name="HurtBox" parent="." index="13" instance=ExtResource("6_l4sva")]
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_n1dp7")
+
+[connection signal="area_entered" from="FindArea" to="." method="_on_find_area_area_entered"]
+[connection signal="area_exited" from="FindArea" to="." method="_on_find_area_area_exited"]
+[connection signal="input_event" from="InteraceArea" to="." method="_on_interace_area_input_event"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+
+[editable path="HurtBox"]

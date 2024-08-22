@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlu5s8e1od2pi"
+path="res://.godot/imported/Foggy Woods.mp3-1a786687b262f214cca045202c1d7492.mp3str"
+
+[deps]
+
+source_file="res://assets/generic-rpg-pack_v0.4_(alpha-release)_vacaroxa/rpg-pack/soundtrack/Foggy Woods.mp3"
+dest_files=["res://.godot/imported/Foggy Woods.mp3-1a786687b262f214cca045202c1d7492.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

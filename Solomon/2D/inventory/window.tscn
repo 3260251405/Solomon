@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://d315ha454hp0x"]
+
+[ext_resource type="Script" path="res://2D/inventory/window.gd" id="1_v1pik"]
+[ext_resource type="Texture2D" uid="uid://tvyn6cmg022r" path="res://assets/survival/inventory-background.png" id="2_2hik0"]
+
+[node name="Window" type="MarginContainer"]
+offset_right = 49.0
+offset_bottom = 48.0
+script = ExtResource("1_v1pik")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_2hik0")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3

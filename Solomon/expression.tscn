@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://elc4dl67vyrs"]
+
+[ext_resource type="Texture2D" uid="uid://fvik67yr07sl" path="res://assets/expression/background.png" id="1_e1g6c"]
+[ext_resource type="Texture2D" uid="uid://beyu0gircpd1h" path="res://assets/expression/sex.webp" id="2_2cqym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqx88"]
+atlas = ExtResource("1_e1g6c")
+region = Rect2(80, 48, 32, 48)
+
+[node name="Expression" type="TextureRect"]
+offset_right = 32.0
+offset_bottom = 48.0
+texture = SubResource("AtlasTexture_sqx88")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 69.0
+offset_bottom = 74.0
+scale = Vector2(0.4, 0.4)
+
+[node name="Picture" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("2_2cqym")

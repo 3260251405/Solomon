@@ -1,0 +1,244 @@
+[gd_scene load_steps=30 format=3 uid="uid://1sixk7mi65so"]
+
+[ext_resource type="PackedScene" uid="uid://c51an3gq6jtuc" path="res://2D/character/people.tscn" id="1_6x145"]
+[ext_resource type="Script" path="res://2D/script/player.gd" id="2_xmap8"]
+[ext_resource type="Script" path="res://2D/character/Walk.gd" id="3_rflwo"]
+[ext_resource type="PackedScene" uid="uid://blrj06f6j5qgb" path="res://2D/objects/hit_box.tscn" id="4_vtxsg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmike"]
+radius = 11.3137
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8gvpo"]
+load_path = "res://.godot/imported/Player.png-1f2fcf4e1e1ba5bfca826a182bb8f50e.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_odctg"]
+radius = 7.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_ou1de"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_24o3u"]
+resource_name = "idle_down"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_oekte"]
+resource_name = "idle_up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_ckyxr"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_lfnn8"]
+resource_name = "walk_down"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23]
+}
+
+[sub_resource type="Animation" id="Animation_xv5wl"]
+resource_name = "walk_up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ugumu"]
+_data = {
+"idle": SubResource("Animation_ou1de"),
+"idle_down": SubResource("Animation_24o3u"),
+"idle_up": SubResource("Animation_oekte"),
+"walk": SubResource("Animation_ckyxr"),
+"walk_down": SubResource("Animation_lfnn8"),
+"walk_up": SubResource("Animation_xv5wl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rn4q"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4tp0p"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wna38"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm6w0"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gklem"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1rn4q")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4tp0p")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wna38")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_jm6w0")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ardkt"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tdch"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bdam"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilvjw"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7aj7m"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ardkt")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7tdch")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4bdam")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ilvjw")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veyhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhyxk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mwu0"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7kp5y"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_gklem")
+states/Idle/position = Vector2(359, 100)
+states/Start/position = Vector2(199, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7aj7m")
+states/Walk/position = Vector2(536, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veyhp"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_hhyxk"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3mwu0")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i4aot"]
+radius = 36.0139
+
+[node name="Player" instance=ExtResource("1_6x145")]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("2_xmap8")
+
+[node name="CollisionShape2D" parent="InteraceArea" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_fmike")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -8)
+texture = SubResource("CompressedTexture2D_8gvpo")
+hframes = 6
+vframes = 10
+frame = 5
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_odctg")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_ugumu")
+}
+
+[node name="AnimationTree" parent="." index="4"]
+tree_root = SubResource("AnimationNodeStateMachine_7kp5y")
+
+[node name="Walk" parent="StateMachine" index="1"]
+script = ExtResource("3_rflwo")
+
+[node name="Camera2D" type="Camera2D" parent="." index="6"]
+process_callback = 0
+
+[node name="Expression" parent="." index="8"]
+offset_left = 1.0
+offset_top = -52.0
+offset_right = 33.0
+offset_bottom = -4.0
+
+[node name="Panel" parent="." index="9"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="." index="12"]
+
+[node name="HitBox2" parent="." index="13" instance=ExtResource("4_vtxsg")]
+
+[node name="CollisionShape2D" parent="HitBox2" index="0"]
+shape = SubResource("CircleShape2D_i4aot")
+
+[editable path="HitBox2"]
