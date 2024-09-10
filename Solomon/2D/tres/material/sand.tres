@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://d0eqdhad7d54o"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_o0lwa"]
+[ext_resource type="Texture2D" uid="uid://d1a47l8a0w4xf" path="res://assets/nature/SandLight.png" id="2_3aoaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mt0e"]
+atlas = ExtResource("2_3aoaa")
+region = Rect2(16, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_o0lwa")
+texture = SubResource("AtlasTexture_3mt0e")
+name = "Sand"
+ChineseName = "沙子"
+description = "沙子..."
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {}

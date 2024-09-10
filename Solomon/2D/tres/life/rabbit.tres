@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://qqy3oug6vwuw"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_njcso"]
+[ext_resource type="Texture2D" uid="uid://cmcbjxy16qssp" path="res://assets/animal/rabbit.png" id="2_qn12b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiral"]
+atlas = ExtResource("2_qn12b")
+region = Rect2(7, 11, 18, 20)
+
+[resource]
+script = ExtResource("1_njcso")
+texture = SubResource("AtlasTexture_iiral")
+name = "Rabbit"
+ChineseName = "兔子"
+description = "可爱的小兔子，跑得飞快"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 6
+data = {}
+material = {}

@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://d36angdtyf3ef"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_qpq37"]
+[ext_resource type="TileSet" uid="uid://c7fsrij6o3hh5" path="res://tres/tileset.tres" id="2_dj2sq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6j528"]
+frequency = 0.4462
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gx7yr"]
+noise = SubResource("FastNoiseLite_6j528")
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qpq37")
+test = SubResource("NoiseTexture2D_gx7yr")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_dj2sq")
+format = 2
+layer_0/name = "Ground"
+layer_1/name = "Environment"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="Envir" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Monster" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "测试"
+
+[node name="Day" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.0901961, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Day1"
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 22.0
+offset_right = 44.0
+offset_bottom = 42.0
+mouse_default_cursor_shape = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MonsterTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="item_selected" from="CanvasLayer/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="timeout" from="MonsterTimer" to="." method="_on_monster_timer_timeout"]

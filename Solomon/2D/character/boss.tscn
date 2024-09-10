@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwwsfep018u7j"]
+
+[ext_resource type="PackedScene" uid="uid://7p3sgy02pjpw" path="res://2D/character/monster.tscn" id="1_euda7"]
+[ext_resource type="Script" path="res://2D/script/character/boss.gd" id="2_ehdc8"]
+
+[node name="Boss" instance=ExtResource("1_euda7")]
+script = ExtResource("2_ehdc8")

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://2cft6cm13xa6"]
+
+[ext_resource type="Resource" uid="uid://cvbgxmy2j0m8f" path="res://2D/tres/material/stone.tres" id="2_1b3ip"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="3_i8lfj"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_nh5hw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjpax"]
+atlas = ExtResource("3_i8lfj")
+region = Rect2(112, 80, 16, 16)
+
+[resource]
+script = ExtResource("3_nh5hw")
+texture = SubResource("AtlasTexture_hjpax")
+name = "Kettle"
+ChineseName = "水壶"
+description = "灌水后使用，使一块沙地变成草地"
+stackable = false
+maxStack = 0
+amount = 5
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("2_1b3ip"): 5
+}

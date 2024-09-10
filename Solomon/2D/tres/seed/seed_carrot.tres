@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://b7r4rqdrcnv3y"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_qeaki"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="2_c37u5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sowb8"]
+atlas = ExtResource("2_c37u5")
+region = Rect2(176, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_qeaki")
+texture = SubResource("AtlasTexture_sowb8")
+name = "seed_carrot"
+ChineseName = "胡萝卜种子"
+description = "胡萝卜种子"
+stackable = true
+maxStack = 99
+style = 1
+data = {}
+material = {}

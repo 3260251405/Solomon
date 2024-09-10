@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=4 format=3 uid="uid://bpouqnbo8v28l"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_eup5m"]
+[ext_resource type="Texture2D" uid="uid://bkbv7cfvn3wil" path="res://assets/SlimePack/Slime/Slime_Death.png" id="2_3d1ei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d2xv"]
+atlas = ExtResource("2_3d1ei")
+region = Rect2(470, 33, 18, 15)
+
+[resource]
+script = ExtResource("1_eup5m")
+texture = SubResource("AtlasTexture_4d2xv")
+name = "史莱姆杀手1"
+description = "单局游戏内击杀20个史莱姆"

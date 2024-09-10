@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dydrbpxphio8a"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_l5cvj"]
+[ext_resource type="Texture2D" uid="uid://dcu2wq44c5ypp" path="res://assets/animal/hen.png" id="2_ouo4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io7ws"]
+atlas = ExtResource("2_ouo4f")
+region = Rect2(10, 24, 28, 38)
+
+[resource]
+script = ExtResource("1_l5cvj")
+texture = SubResource("AtlasTexture_io7ws")
+name = "Hen"
+ChineseName = "母鸡"
+description = "会下蛋的坤坤~"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 6
+data = {}
+material = {}

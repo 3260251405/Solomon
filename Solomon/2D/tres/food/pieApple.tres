@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cicbpjor10kxi"]
+
+[ext_resource type="Resource" uid="uid://8amney47fory" path="res://2D/tres/food/egg.tres" id="2_f2cty"]
+[ext_resource type="Resource" uid="uid://57o0fasoewrd" path="res://2D/tres/food/apple.tres" id="2_utspq"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_ixsvu"]
+[ext_resource type="Texture2D" uid="uid://ba2o7m5tl6fax" path="res://assets/food/PieApple.png" id="4_84yph"]
+
+[resource]
+script = ExtResource("3_ixsvu")
+texture = ExtResource("4_84yph")
+name = "PieApple"
+ChineseName = "苹果派"
+description = "苹果派"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 20,
+"hv": 20,
+"hvMax": 5
+}
+material = {
+ExtResource("2_f2cty"): 2,
+ExtResource("2_utspq"): 10
+}

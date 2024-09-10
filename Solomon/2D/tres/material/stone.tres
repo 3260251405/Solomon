@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cvbgxmy2j0m8f"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_ln6y2"]
+[ext_resource type="Texture2D" uid="uid://cqmx7j6txihul" path="res://assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png" id="2_e1t30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0xag"]
+atlas = ExtResource("2_e1t30")
+region = Rect2(0, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_ln6y2")
+texture = SubResource("AtlasTexture_r0xag")
+name = "Stone"
+ChineseName = "石头"
+description = "制作各类物品必不可少的材料"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {}

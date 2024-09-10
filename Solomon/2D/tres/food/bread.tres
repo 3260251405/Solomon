@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bd0hrtcmovsiy"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_djrll"]
+[ext_resource type="Resource" uid="uid://8amney47fory" path="res://2D/tres/food/egg.tres" id="2_085er"]
+[ext_resource type="Resource" uid="uid://18x0mnubu1g7" path="res://2D/tres/food/dough.tres" id="2_a3am0"]
+[ext_resource type="Texture2D" uid="uid://n505nyi8v0yd" path="res://assets/food/Bread.png" id="4_eitl1"]
+
+[resource]
+script = ExtResource("1_djrll")
+texture = ExtResource("4_eitl1")
+name = "Bread"
+ChineseName = "面包"
+description = "甜而不腻，丝滑可口"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 10,
+"hv": 40
+}
+material = {
+ExtResource("2_085er"): 2,
+ExtResource("2_a3am0"): 2
+}

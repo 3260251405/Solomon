@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ct43urdetsl0y"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_ptn7t"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="2_hs0p8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsqy0"]
+atlas = ExtResource("2_hs0p8")
+region = Rect2(176, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_ptn7t")
+texture = SubResource("AtlasTexture_xsqy0")
+name = "seed_turnip"
+ChineseName = "白萝卜种子"
+description = "白萝卜种子"
+stackable = true
+maxStack = 99
+style = 1
+data = {}
+material = {}

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dstqw0w7wg2b6"]
+
+[ext_resource type="PackedScene" uid="uid://c14cws0sjjtod" path="res://2D/objects/stuff.tscn" id="1_st5ul"]
+[ext_resource type="Texture2D" uid="uid://cooerg4vpcbee" path="res://assets/door.png" id="2_ceqt5"]
+[ext_resource type="Script" path="res://2D/objects/door.gd" id="2_iuvph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alusj"]
+size = Vector2(42, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmiyt"]
+atlas = ExtResource("2_ceqt5")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fy7"]
+atlas = ExtResource("2_ceqt5")
+region = Rect2(0, 64, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyogx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmiyt")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05fy7")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvjfu"]
+radius = 35.0143
+
+[node name="Door" instance=ExtResource("1_st5ul")]
+script = ExtResource("2_iuvph")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1, -8)
+shape = SubResource("RectangleShape2D_alusj")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -30)
+sprite_frames = SubResource("SpriteFrames_uyogx")
+animation = &"close"
+autoplay = "close"
+
+[node name="Area2D" parent="." index="2"]
+position = Vector2(0, -25)
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_yvjfu")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://xu6qg2gmn36y"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_5hwml"]
+[ext_resource type="Texture2D" uid="uid://ogtofvdgvrir" path="res://assets/food/FishSteak.png" id="2_hqcik"]
+
+[resource]
+script = ExtResource("1_5hwml")
+texture = ExtResource("2_hqcik")
+name = "Flesh"
+ChineseName = "人肉"
+description = "生人肉"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 0
+data = {
+"hp": -10,
+"hv": 10,
+"karma": -20
+}
+material = {}

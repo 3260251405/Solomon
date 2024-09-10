@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh6fsitjrhvx1"]
+
+[ext_resource type="Texture2D" uid="uid://bxir0j1c02ug1" path="res://assets/rpg/people (2).png" id="1_um6x3"]
+[ext_resource type="PackedScene" uid="uid://d315ha454hp0x" path="res://2D/inventory/window.tscn" id="1_v8ijh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r8drs"]
+load_path = "res://.godot/imported/inventory-background.png-6093833a5c6feb95bf78db8e46051d19.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tsr3k"]
+texture = SubResource("CompressedTexture2D_r8drs")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="Panel" type="PanelContainer"]
+z_index = 98
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tsr3k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/TextureRect2"]
+position = Vector2(16, 24)
+texture = ExtResource("1_um6x3")
+hframes = 4
+vframes = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "姓名"
+
+[node name="Age" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "年龄"
+
+[node name="State" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "状态"
+
+[node name="Window" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_v8ijh")]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2

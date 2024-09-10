@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqvq8ekwvrd3d"]
+
+[ext_resource type="PackedScene" uid="uid://bfk78opncsdjn" path="res://2D/nature/nature.tscn" id="1_38ak7"]
+[ext_resource type="Script" path="res://2D/script/nature/tree.gd" id="2_50mge"]
+[ext_resource type="Texture2D" uid="uid://31t8b4jpnjtd" path="res://assets/survival/survivalgame-appletree.png" id="3_6y2o2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp8nt"]
+atlas = ExtResource("3_6y2o2")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e26rp"]
+atlas = ExtResource("3_6y2o2")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krgm5"]
+atlas = ExtResource("3_6y2o2")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddfgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp8nt")
+}],
+"loop": true,
+"name": &"cut",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e26rp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krgm5")
+}],
+"loop": true,
+"name": &"grown",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ym7c3"]
+radius = 17.2627
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xa3km"]
+radius = 7.0
+height = 14.0
+
+[node name="Tree" groups=["food"] instance=ExtResource("1_38ak7")]
+script = ExtResource("2_50mge")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_ddfgc")
+animation = &"grown"
+
+[node name="Interactable" type="Area2D" parent="." index="1"]
+position = Vector2(0, -10)
+collision_layer = 64
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" index="0"]
+shape = SubResource("CircleShape2D_ym7c3")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_xa3km")
+
+[node name="HurtBox" parent="." index="3"]
+position = Vector2(0, -5)
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+[editable path="HurtBox"]

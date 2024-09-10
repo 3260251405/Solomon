@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://j2iw1ivppcii"]
+
+[ext_resource type="Resource" uid="uid://cvbgxmy2j0m8f" path="res://2D/tres/material/stone.tres" id="1_mwmta"]
+[ext_resource type="Resource" uid="uid://d1i8qbcax4hn6" path="res://2D/tres/material/stick.tres" id="2_8v8ee"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_tyfiu"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="4_cpr07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3arvd"]
+atlas = ExtResource("4_cpr07")
+region = Rect2(128, 80, 16, 16)
+
+[resource]
+script = ExtResource("3_tyfiu")
+texture = SubResource("AtlasTexture_3arvd")
+name = "Shovel"
+ChineseName = "铲子"
+description = "在沙地上使用获得沙子"
+stackable = false
+maxStack = 0
+amount = 3
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_mwmta"): 5,
+ExtResource("2_8v8ee"): 3
+}

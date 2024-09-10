@@ -6,6 +6,8 @@
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("1_kd0xv")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

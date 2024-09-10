@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://2elyhrgiy75h"]
+
+[ext_resource type="Resource" uid="uid://cn0r8fkwginbj" path="res://2D/tres/material/plank.tres" id="1_48g1u"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="2_4ji38"]
+[ext_resource type="Texture2D" uid="uid://c8t2onyqh8i8r" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Chest.png" id="2_88itm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc0pv"]
+atlas = ExtResource("2_88itm")
+region = Rect2(16, 18, 16, 14)
+
+[resource]
+script = ExtResource("2_4ji38")
+texture = SubResource("AtlasTexture_dc0pv")
+name = "Box"
+ChineseName = "箱子"
+description = "存储物品"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 5
+data = {}
+material = {
+ExtResource("1_48g1u"): 5
+}

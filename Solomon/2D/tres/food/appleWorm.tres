@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://j01wfx72dl8w"]
+
+[ext_resource type="Resource" uid="uid://57o0fasoewrd" path="res://2D/tres/food/apple.tres" id="1_61u8u"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_h3rpd"]
+[ext_resource type="Texture2D" uid="uid://drtxky6gslcng" path="res://assets/food/AppleWorm.png" id="3_tgari"]
+
+[resource]
+script = ExtResource("3_h3rpd")
+texture = ExtResource("3_tgari")
+name = "AppleWorm"
+ChineseName = "烂苹果"
+description = "已经腐烂的苹果，甚至有蛆在爬"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": -50,
+"hpMax": 5,
+"hv": 5
+}
+material = {
+ExtResource("1_61u8u"): 1
+}

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://brs6giqnntdj0"]
+
+[ext_resource type="Script" path="res://2D/script/ui/virtual_joy.gd" id="1_c4w5l"]
+[ext_resource type="Texture2D" uid="uid://b8sqg6b1ks7s1" path="res://assets/ui/HUD.png" id="1_ihmxj"]
+[ext_resource type="Script" path="res://2D/script/ui/knob.gd" id="2_sdjlb"]
+[ext_resource type="Texture2D" uid="uid://du8si86cjsum3" path="res://assets/ui/ABXY/button_xbox_digital_a_1.png" id="3_2k0pq"]
+[ext_resource type="Texture2D" uid="uid://bh8shsiqewnqx" path="res://assets/ui/ABXY/button_xbox_digital_b_1.png" id="4_tq0y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh7ek"]
+atlas = ExtResource("1_ihmxj")
+region = Rect2(374, 6, 52, 52)
+
+[node name="VirtualJoy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c4w5l")
+
+[node name="Stick" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Knob" type="TouchScreenButton" parent="Stick"]
+position = Vector2(90, -150)
+texture_normal = SubResource("AtlasTexture_jh7ek")
+visibility_mode = 1
+script = ExtResource("2_sdjlb")
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Attack" type="TouchScreenButton" parent="Actions"]
+position = Vector2(-176, -145)
+scale = Vector2(0.1, 0.123)
+texture_normal = ExtResource("3_2k0pq")
+action = "Attack"
+visibility_mode = 1
+
+[node name="Interact" type="TouchScreenButton" parent="Actions"]
+position = Vector2(-100, -145)
+scale = Vector2(0.1, 0.123)
+texture_normal = ExtResource("4_tq0y5")
+action = "Interact"
+visibility_mode = 1

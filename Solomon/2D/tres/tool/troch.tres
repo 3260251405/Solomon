@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dh1g4astf88er"]
+
+[ext_resource type="Resource" uid="uid://d1i8qbcax4hn6" path="res://2D/tres/material/stick.tres" id="1_okmg5"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="2_bpx32"]
+[ext_resource type="Texture2D" uid="uid://dl8lgvxp3iuwq" path="res://assets/object/Torch.png" id="3_54pi4"]
+
+[resource]
+script = ExtResource("2_bpx32")
+texture = ExtResource("3_54pi4")
+name = "Torch"
+ChineseName = "火把"
+description = "生命中的一把火~"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 4
+data = {}
+material = {
+ExtResource("1_okmg5"): 3
+}

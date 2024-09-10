@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://cjf6x58ae1p8g"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_02jaq"]
+[ext_resource type="Texture2D" uid="uid://mhjc3kflwip7" path="res://assets/icon/langya.png" id="2_ydxcx"]
+
+[resource]
+script = ExtResource("1_02jaq")
+texture = ExtResource("2_ydxcx")
+name = "哥布林杀手2"
+description = "单局游戏内击杀50个哥布林"

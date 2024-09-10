@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bqrr1nhyqnbyd"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_rasw8"]
+[ext_resource type="Texture2D" uid="uid://dv5361bjfknp7" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_gqmjx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8mn1"]
+atlas = ExtResource("2_gqmjx")
+region = Rect2(32, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_rasw8")
+texture = SubResource("AtlasTexture_u8mn1")
+name = "Wood"
+ChineseName = "木头"
+description = "制作各类物品必不可少的材料"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {}

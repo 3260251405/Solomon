@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://pr1pvbcdxmm0"]
+
+[ext_resource type="Script" path="res://2D/script/ui/game_menu.gd" id="1_vexs7"]
+
+[node name="GameMenu" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vexs7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "菜单"
+
+[node name="BGM" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/BGM"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "音乐："
+
+[node name="BGMButton" type="CheckButton" parent="MarginContainer/VBoxContainer/BGM"]
+layout_mode = 2
+size_flags_horizontal = 2
+button_pressed = true
+
+[node name="SFX" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "音效："
+
+[node name="SFXButton" type="CheckButton" parent="MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 2
+button_pressed = true
+
+[node name="Speed" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "速度："
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_horizontal = 2
+mouse_default_cursor_shape = 2
+item_count = 6
+popup/item_0/text = "0.5"
+popup/item_1/text = "1.0"
+popup/item_1/id = 1
+popup/item_2/text = "1.5"
+popup/item_2/id = 2
+popup/item_3/text = "2.0"
+popup/item_3/id = 3
+popup/item_4/text = "5.0"
+popup/item_4/id = 4
+popup/item_5/text = "10.0"
+popup/item_5/id = 5
+
+[node name="Button" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/Button"]
+layout_mode = 2
+text = "返回游戏"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/Button"]
+layout_mode = 2
+text = "返回主页"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BGM/BGMButton" to="." method="_on_bgm_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SFX/SFXButton" to="." method="_on_sfx_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Speed/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button/Exit" to="." method="_on_exit_pressed"]

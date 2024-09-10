@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://1lojclillfkn"]
+
+[ext_resource type="Script" path="res://2D/script/ui/bag.gd" id="1_4od1j"]
+[ext_resource type="Script" path="res://2D/script/ui/panel.gd" id="1_6k361"]
+[ext_resource type="Texture2D" uid="uid://dy0g6cyf4133k" path="res://assets/close.png" id="2_rcwxt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5guu1"]
+bg_color = Color(0, 0, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w5h80"]
+load_path = "res://.godot/imported/inventory-background.png-6093833a5c6feb95bf78db8e46051d19.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ytq8"]
+texture = SubResource("CompressedTexture2D_w5h80")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="Panel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6k361")
+
+[node name="Button" type="Button" parent="."]
+top_level = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+offset_right = 20.0
+offset_bottom = 20.0
+size_flags_horizontal = 0
+mouse_filter = 1
+icon = ExtResource("2_rcwxt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5guu1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.489622, 0.489622, 0.489622, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 2
+text = "属性面板"
+
+[node name="LV" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "等级：1"
+
+[node name="EXP" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "经验：0/100"
+
+[node name="HP" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "生命值：100/100"
+
+[node name="HV" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "饱食度：100/100"
+
+[node name="Attack" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "攻击力：20"
+
+[node name="Speed" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "速度：100"
+
+[node name="Karma" type="Label" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 15
+text = "善恶值：100"
+
+[node name="Bag" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ytq8")
+script = ExtResource("1_4od1j")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Bag"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Bag/MarginContainer"]
+layout_mode = 2
+columns = 6
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

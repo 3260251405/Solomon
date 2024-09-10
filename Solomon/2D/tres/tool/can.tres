@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://dygf3l5qxds5k"]
+
+[ext_resource type="Resource" uid="uid://xu6qg2gmn36y" path="res://2D/tres/food/flesh.tres" id="1_kj4bx"]
+[ext_resource type="Resource" uid="uid://cjnecrkkdj23" path="res://2D/tres/material/ironIngot.tres" id="2_7qtgn"]
+[ext_resource type="Resource" uid="uid://bcgf54kw7xa4h" path="res://2D/tres/food/jam.tres" id="3_gv1an"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="5_clyem"]
+[ext_resource type="Texture2D" uid="uid://drgjgih3hjo8i" path="res://assets/food/Sardines.png" id="5_lgxnj"]
+
+[resource]
+script = ExtResource("5_clyem")
+texture = ExtResource("5_lgxnj")
+name = "Can"
+ChineseName = "人罐头"
+description = "当善恶值低于-100时策反怪物"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_kj4bx"): 20,
+ExtResource("2_7qtgn"): 5,
+ExtResource("3_gv1an"): 1
+}

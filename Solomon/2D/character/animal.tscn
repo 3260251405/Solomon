@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://wx7ccc6ybe4x"]
+
+[ext_resource type="PackedScene" uid="uid://gqjod0s0wgeu" path="res://2D/character/life.tscn" id="1_l0i2a"]
+[ext_resource type="Script" path="res://2D/script/character/animal.gd" id="2_dgcq6"]
+[ext_resource type="Texture2D" uid="uid://dcu2wq44c5ypp" path="res://assets/animal/hen.png" id="3_ah2km"]
+
+[node name="Animal" groups=["animal"] instance=ExtResource("1_l0i2a")]
+collision_layer = 16
+collision_mask = 31
+script = ExtResource("2_dgcq6")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -30)
+texture = ExtResource("3_ah2km")
+
+[node name="Bar" parent="." index="4"]
+position = Vector2(-24, -42)
+
+[node name="Interactable" type="Area2D" parent="Areaes" index="2"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areaes/Interactable" index="0"]
+
+[node name="LogicTimer" type="Timer" parent="." index="7"]
+wait_time = 1.7
+autostart = true
+
+[connection signal="timeout" from="LogicTimer" to="." method="_on_logic_timer_timeout"]

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://dtayvqgc88gt5"]
+
+[ext_resource type="Resource" uid="uid://cfqsclx0hhl3q" path="res://2D/tres/material/magic.tres" id="1_omvsf"]
+[ext_resource type="Resource" uid="uid://cn0r8fkwginbj" path="res://2D/tres/material/plank.tres" id="2_a7aww"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="4_hp5kj"]
+[ext_resource type="Texture2D" uid="uid://c3a0mfv8poqpp" path="res://assets/Heal Totem Sprite Sheet v1.1.png" id="4_v4n2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rot0i"]
+atlas = ExtResource("4_v4n2q")
+region = Rect2(11, 14, 15, 18)
+
+[resource]
+script = ExtResource("4_hp5kj")
+texture = SubResource("AtlasTexture_rot0i")
+name = "Shaman"
+ChineseName = "治疗萨满"
+description = "不断恢复范围内友方单位的血量"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 5
+data = {}
+material = {
+ExtResource("1_omvsf"): 3,
+ExtResource("2_a7aww"): 10
+}

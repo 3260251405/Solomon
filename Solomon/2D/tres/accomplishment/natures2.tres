@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=4 format=3 uid="uid://dwslqwtl3cp4p"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_g5xjb"]
+[ext_resource type="Texture2D" uid="uid://duk0npltpi2ga" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_ubnvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s33k6"]
+atlas = ExtResource("2_ubnvt")
+region = Rect2(80, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_g5xjb")
+texture = SubResource("AtlasTexture_s33k6")
+name = "基建狂魔"
+description = "单局游戏内采集100次资源"

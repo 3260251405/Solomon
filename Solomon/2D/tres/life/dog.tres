@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://b0q040enmn4a1"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_0uxxg"]
+[ext_resource type="Texture2D" uid="uid://d5kftgvl3fbj" path="res://assets/animal/Topdown - Pet - Dog/Root_Idle.png" id="2_o2ovl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rnoh"]
+atlas = ExtResource("2_o2ovl")
+region = Rect2(22, 95, 23, 17)
+
+[resource]
+script = ExtResource("1_0uxxg")
+texture = SubResource("AtlasTexture_6rnoh")
+name = "Dog"
+ChineseName = "狗"
+description = "可爱又忠心的小狗，可以帮助你采集资源和打怪"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 6
+data = {}
+material = {}

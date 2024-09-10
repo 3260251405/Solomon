@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://8a6r47virf44"]
+
+[ext_resource type="Resource" uid="uid://d1i8qbcax4hn6" path="res://2D/tres/material/stick.tres" id="1_3v65k"]
+[ext_resource type="Resource" uid="uid://832m0r7ye7sf" path="res://2D/tres/material/gossamer.tres" id="1_afku8"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_6ryfo"]
+[ext_resource type="Texture2D" uid="uid://c0vfwi33v2cos" path="res://assets/rod.png" id="4_7w6dk"]
+
+[resource]
+script = ExtResource("3_6ryfo")
+texture = ExtResource("4_7w6dk")
+name = "Rod"
+ChineseName = "鱼竿"
+description = "钓鱼老的最爱"
+stackable = false
+maxStack = 0
+amount = 3
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_afku8"): 5,
+ExtResource("1_3v65k"): 3
+}

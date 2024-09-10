@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c14cws0sjjtod"]
+
+[ext_resource type="Script" path="res://2D/objects/stuff.gd" id="1_md6gj"]
+
+[node name="Stuff" type="StaticBody2D" groups=["object"]]
+z_index = 5
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_md6gj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+animation = &""
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

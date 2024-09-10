@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://bmxgmab4fc8a1"]
+
+[ext_resource type="Resource" uid="uid://cfqsclx0hhl3q" path="res://2D/tres/material/magic.tres" id="1_b8ve5"]
+[ext_resource type="Resource" uid="uid://cjnecrkkdj23" path="res://2D/tres/material/ironIngot.tres" id="2_clhay"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="2_sorei"]
+[ext_resource type="Resource" uid="uid://lwrudx2mcavy" path="res://2D/tres/material/gold.tres" id="3_adyo0"]
+[ext_resource type="Texture2D" uid="uid://duynkjho4xnna" path="res://assets/FlyingObelisk_no_lightnings_no_letter.png" id="5_q6u5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_644v5"]
+atlas = ExtResource("5_q6u5t")
+region = Rect2(864, 60, 77, 292)
+
+[resource]
+script = ExtResource("2_sorei")
+texture = SubResource("AtlasTexture_644v5")
+name = "Guard"
+ChineseName = "守护方碑"
+description = "吸引范围内怪物的火力"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 5
+data = {}
+material = {
+ExtResource("1_b8ve5"): 1,
+ExtResource("2_clhay"): 10,
+ExtResource("3_adyo0"): 5
+}

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://tf2n4ukkgbvk"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_nw17e"]
+[ext_resource type="Texture2D" uid="uid://mhjc3kflwip7" path="res://assets/icon/langya.png" id="2_w6viw"]
+
+[resource]
+script = ExtResource("1_nw17e")
+texture = ExtResource("2_w6viw")
+name = "哥布林克星"
+description = "单局游戏内击杀100个哥布林"

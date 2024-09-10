@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfk78opncsdjn"]
+
+[ext_resource type="Script" path="res://2D/script/nature/nature.gd" id="1_d7k23"]
+[ext_resource type="PackedScene" uid="uid://deev10kc4u1uj" path="res://2D/boxes/hurt_box.tscn" id="3_fgkqa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wy3l8"]
+animations = []
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mjf46"]
+
+[node name="Natrue" type="StaticBody2D" groups=["nature"]]
+z_index = 5
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_d7k23")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_wy3l8")
+animation = &""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="HurtBox" parent="." instance=ExtResource("3_fgkqa")]
+position = Vector2(0, -15)
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_mjf46")
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HurtBox"]

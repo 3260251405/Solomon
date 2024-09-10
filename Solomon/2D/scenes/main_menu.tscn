@@ -1,0 +1,194 @@
+[gd_scene load_steps=3 format=3 uid="uid://duv8yuk63pkdj"]
+
+[ext_resource type="Script" path="res://2D/script/scenes/main_menu.gd" id="1_uvk5t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63ngh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.416596, 0.401517, 0.120948, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uvk5t")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_63ngh")
+
+[node name="Button" type="Button" parent="PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "返回"
+
+[node name="Button2" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "成就"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="New" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "新的游戏"
+
+[node name="Continue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "继续游戏"
+
+[node name="War" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "战争模式"
+
+[node name="Live" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "极限生存"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 24
+text = "创造世界"
+horizontal_alignment = 1
+
+[node name="NPCCount" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/NPCCount"]
+layout_mode = 2
+text = "NPC数量："
+
+[node name="Button" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer2/NPCCount"]
+layout_mode = 2
+item_count = 6
+popup/item_0/text = "很少"
+popup/item_1/text = "少"
+popup/item_1/id = 1
+popup/item_2/text = "普通"
+popup/item_2/id = 2
+popup/item_3/text = "多"
+popup/item_3/id = 3
+popup/item_4/text = "很多"
+popup/item_4/id = 4
+popup/item_5/text = "随机"
+popup/item_5/id = 5
+
+[node name="TreeCount" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/TreeCount"]
+layout_mode = 2
+text = "树木数量："
+
+[node name="Button" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer2/TreeCount"]
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "很少"
+popup/item_1/text = "少"
+popup/item_1/id = 1
+popup/item_2/text = "普通"
+popup/item_2/id = 2
+popup/item_3/text = "多"
+popup/item_3/id = 3
+popup/item_4/text = "随机"
+popup/item_4/id = 4
+
+[node name="WroldSize" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer2/WroldSize"]
+layout_mode = 2
+text = "世界大小："
+
+[node name="Button" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer2/WroldSize"]
+layout_mode = 2
+item_count = 6
+popup/item_0/text = "随机大小"
+popup/item_1/text = "小"
+popup/item_1/id = 1
+popup/item_2/text = "中等"
+popup/item_2/id = 2
+popup/item_3/text = "大"
+popup/item_3/id = 3
+popup/item_4/text = "很大"
+popup/item_4/id = 4
+popup/item_5/text = "超级无敌巨他妈大"
+popup/item_5/id = 5
+
+[node name="Start" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "开始游戏"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="God" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "上帝模式"
+
+[node name="Survive" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "生存模式"
+
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="visibility_changed" from="PanelContainer/MarginContainer/VBoxContainer" to="." method="_on_v_box_container_visibility_changed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/New" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/War" to="." method="_on_war_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Live" to="." method="_on_live_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer3/Survive" to="." method="_on_survive_pressed"]

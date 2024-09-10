@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://ce5kh3v3jwkk8"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_040mp"]
+[ext_resource type="Resource" uid="uid://18x0mnubu1g7" path="res://2D/tres/food/dough.tres" id="1_psx4d"]
+[ext_resource type="Resource" uid="uid://8amney47fory" path="res://2D/tres/food/egg.tres" id="2_45as2"]
+[ext_resource type="Resource" uid="uid://c30aqghj7xsjg" path="res://2D/tres/food/meat.tres" id="3_0bue2"]
+[ext_resource type="Texture2D" uid="uid://cfosbx8ayl7sk" path="res://assets/food/Sausages.png" id="5_kdwk5"]
+
+[resource]
+script = ExtResource("1_040mp")
+texture = ExtResource("5_kdwk5")
+name = "Sausage"
+ChineseName = "烤肠"
+description = "有肉的肠！"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = true
+style = 0
+data = {
+"attackValue": 5,
+"hp": 10,
+"hv": 20
+}
+material = {
+ExtResource("1_psx4d"): 2,
+ExtResource("2_45as2"): 1,
+ExtResource("3_0bue2"): 3
+}

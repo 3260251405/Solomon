@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://h2o58mgxpp82"]
+
+[ext_resource type="PackedScene" uid="uid://c14cws0sjjtod" path="res://2D/objects/stuff.tscn" id="1_6w3iu"]
+[ext_resource type="Script" path="res://2D/objects/camp_fire.gd" id="2_drrwj"]
+[ext_resource type="Texture2D" uid="uid://dmlelxerga8ou" path="res://assets/Campfire36.png" id="3_m2aye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e4gn3"]
+
+[sub_resource type="Gradient" id="Gradient_ognl3"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_36620"]
+gradient = SubResource("Gradient_ognl3")
+fill = 1
+fill_from = Vector2(0.522936, 0.454128)
+fill_to = Vector2(0.912844, 0.0412844)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nplys"]
+atlas = ExtResource("3_m2aye")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w1ga"]
+atlas = ExtResource("3_m2aye")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a2b4"]
+atlas = ExtResource("3_m2aye")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb5e4"]
+atlas = ExtResource("3_m2aye")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5668b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nplys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w1ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a2b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mb5e4")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 14.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw7p0"]
+radius = 71.007
+
+[node name="CampFire" instance=ExtResource("1_6w3iu")]
+collision_layer = 66
+script = ExtResource("2_drrwj")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_e4gn3")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="1"]
+color = Color(1, 0.772549, 0.0980392, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_36620")
+texture_scale = 3.0
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_5668b")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="Area2D" parent="." index="3"]
+position = Vector2(0, -5)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_nw7p0")

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bcgf54kw7xa4h"]
+
+[ext_resource type="Resource" uid="uid://57o0fasoewrd" path="res://2D/tres/food/apple.tres" id="1_a86sb"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_4reuj"]
+[ext_resource type="Texture2D" uid="uid://baxf3a81ss740" path="res://assets/food/Jam.png" id="3_ehlqs"]
+
+[resource]
+script = ExtResource("3_4reuj")
+texture = ExtResource("3_ehlqs")
+name = "Jam"
+ChineseName = "果酱"
+description = "苹果做成的酱，好吃！"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 30,
+"hv": 10,
+"speed": 2
+}
+material = {
+ExtResource("1_a86sb"): 50
+}

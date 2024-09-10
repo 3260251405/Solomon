@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://2D/inventory/window.gd" id="1_v1pik"]
 [ext_resource type="Texture2D" uid="uid://tvyn6cmg022r" path="res://assets/survival/inventory-background.png" id="2_2hik0"]
 
-[node name="Window" type="MarginContainer"]
+[node name="Window" type="PanelContainer"]
+z_index = 99
 offset_right = 49.0
 offset_bottom = 48.0
 script = ExtResource("1_v1pik")

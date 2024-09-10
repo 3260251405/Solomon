@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cmh60cclp7k0q"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_qe4py"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="2_aiwew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhq35"]
+atlas = ExtResource("2_aiwew")
+region = Rect2(32, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_qe4py")
+texture = SubResource("AtlasTexture_uhq35")
+name = "Coin"
+ChineseName = "玉米"
+description = "玉米"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+material = {}

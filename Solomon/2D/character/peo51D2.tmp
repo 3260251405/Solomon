@@ -1,0 +1,155 @@
+[gd_scene load_steps=25 format=3 uid="uid://b6o6lg5rvy3ya"]
+
+[ext_resource type="PackedScene" uid="uid://gqjod0s0wgeu" path="res://2D/character/life.tscn" id="1_k6i7h"]
+[ext_resource type="Script" path="res://2D/script/character/people.gd" id="2_sfy3m"]
+[ext_resource type="AudioStream" uid="uid://pabdnpkma04j" path="res://assets/audio/arrow.mp3" id="3_m45t4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yqibr"]
+animation = &"player_anim/attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_op6ap"]
+animation = &"player_anim/attack_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6vqmh"]
+animation = &"player_anim/attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d8kw0"]
+animation = &"player_anim/attack"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_8h6ul"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_yqibr")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_op6ap")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6vqmh")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_d8kw0")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_2w2r8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4tp0p"]
+animation = &"player_anim/idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wna38"]
+animation = &"player_anim/idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm6w0"]
+animation = &"player_anim/idle_left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_gklem"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_4tp0p")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_wna38")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_jm6w0")
+blend_point_2/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ardkt"]
+animation = &"player_anim/walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7tdch"]
+animation = &"player_anim/walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4bdam"]
+animation = &"player_anim/walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ilvjw"]
+animation = &"player_anim/walk _left"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_7aj7m"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ardkt")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7tdch")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4bdam")
+blend_point_2/pos = Vector2(0, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ilvjw")
+blend_point_3/pos = Vector2(-1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_veyhp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhyxk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mwu0"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hcu7n"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_8h6ul")
+states/Attack/position = Vector2(703, 100)
+states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_2w2r8")
+states/BlendSpace2D/position = Vector2(572, 244)
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_gklem")
+states/Idle/position = Vector2(359, 100)
+states/Start/position = Vector2(199, 100)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7aj7m")
+states/Walk/position = Vector2(536, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_veyhp"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_hhyxk"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_3mwu0")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erngb"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1pf1"]
+bg_color = Color(0.917647, 0.45098, 0.0745098, 1)
+
+[node name="People" groups=["human", "people"] instance=ExtResource("1_k6i7h")]
+collision_mask = 7
+script = ExtResource("2_sfy3m")
+
+[node name="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_hcu7n")
+parameters/Attack/blend_position = Vector2(0, 0)
+parameters/BlendSpace2D/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(-0.00158983, 0.97861)
+parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="NavigationObstacle2D" parent="." index="5"]
+avoidance_layers = 4
+
+[node name="Bar" parent="." index="6"]
+z_index = 80
+
+[node name="HvBar" type="ProgressBar" parent="Bar" index="1"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 14.0
+offset_bottom = -4.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_erngb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_h1pf1")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Interact" type="Area2D" parent="Areaes" index="2"]
+modulate = Color(0, 0, 0, 1)
+collision_layer = 0
+collision_mask = 64
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areaes/Interact" index="0"]
+
+[node name="Interactable" type="Area2D" parent="Areaes" index="3"]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areaes/Interactable" index="0"]
+
+[node name="HvTimer" type="Timer" parent="." index="9"]
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="10"]
+
+[node name="Arrow" type="AudioStreamPlayer2D" parent="Audios" index="0"]
+stream = ExtResource("3_m45t4")
+volume_db = -10.0
+max_distance = 350.0
+
+[connection signal="area_entered" from="Areaes/Interact" to="." method="_on_interact_area_entered"]
+[connection signal="area_exited" from="Areaes/Interact" to="." method="_on_interact_area_exited"]

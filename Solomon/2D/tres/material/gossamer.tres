@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://832m0r7ye7sf"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_hgx5r"]
+[ext_resource type="Texture2D" uid="uid://cgrc6f05tnhse" path="res://assets/Spider Sprite Sheet.png" id="2_45wl5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx5x2"]
+atlas = ExtResource("2_45wl5")
+region = Rect2(77, 241, 7, 8)
+
+[resource]
+script = ExtResource("1_hgx5r")
+texture = SubResource("AtlasTexture_nx5x2")
+name = "Gossamer"
+ChineseName = "蛛丝"
+description = "非常细"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 2
+data = {}
+material = {}

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://tik2po6hlbut"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_op2lg"]
+[ext_resource type="Texture2D" uid="uid://b1tgxsyl2r21j" path="res://assets/animal/cow.png" id="2_xdatx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gsgu"]
+atlas = ExtResource("2_xdatx")
+region = Rect2(10, 22, 28, 40)
+
+[resource]
+script = ExtResource("1_op2lg")
+texture = SubResource("AtlasTexture_4gsgu")
+name = "Cow"
+ChineseName = "牛"
+description = "牛，会掉很多肉"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 6
+data = {}
+material = {}

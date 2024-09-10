@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://57o0fasoewrd"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_3xriu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ye0s"]
+load_path = "res://.godot/imported/apple-icon.png-e66561f81ca8f02d534ae3850cc1aaa0.ctex"
+
+[resource]
+script = ExtResource("1_3xriu")
+texture = SubResource("CompressedTexture2D_8ye0s")
+name = "Apple"
+ChineseName = "苹果"
+description = "白雪公主同款苹果"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 0
+data = {
+"hv": 10
+}
+material = {}

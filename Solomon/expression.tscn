@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://elc4dl67vyrs"]
 
-[ext_resource type="Texture2D" uid="uid://fvik67yr07sl" path="res://assets/expression/background.png" id="1_e1g6c"]
+[ext_resource type="Texture2D" uid="uid://fvik67yr07sl" path="res://assets/background.png" id="1_e1g6c"]
 [ext_resource type="Texture2D" uid="uid://beyu0gircpd1h" path="res://assets/expression/sex.webp" id="2_2cqym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqx88"]

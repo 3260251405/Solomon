@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cnrvxp2ug0k25"]
+
+[ext_resource type="Resource" uid="uid://57o0fasoewrd" path="res://2D/tres/food/apple.tres" id="2_axvnp"]
+[ext_resource type="Resource" uid="uid://c30aqghj7xsjg" path="res://2D/tres/food/meat.tres" id="4_nfigg"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="5_40fn1"]
+[ext_resource type="Texture2D" uid="uid://bmvhkjwauru7t" path="res://assets/food/Pepperoni.png" id="6_peh53"]
+
+[resource]
+script = ExtResource("5_40fn1")
+texture = ExtResource("6_peh53")
+name = "Pepperoni"
+ChineseName = "狗粮"
+description = "驯服小狗，狗儿要听狗儿歌"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("4_nfigg"): 20,
+ExtResource("2_axvnp"): 30
+}

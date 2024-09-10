@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://crkqx1b84gv2s"]
+
+[ext_resource type="PackedScene" uid="uid://bfk78opncsdjn" path="res://2D/nature/nature.tscn" id="1_mek3y"]
+[ext_resource type="Texture2D" uid="uid://c4xi02qs3bhf1" path="res://assets/nature/rocks_shadow.png" id="2_7t63d"]
+[ext_resource type="Script" path="res://2D/script/nature/stone.gd" id="2_41eg0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arhkj"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oh6j"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ri1"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl4ts"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pr41"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vxqq"]
+atlas = ExtResource("2_7t63d")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og0pm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arhkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oh6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ri1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl4ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pr41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vxqq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6puf"]
+
+[node name="Stone" groups=["stone"] instance=ExtResource("1_mek3y")]
+script = ExtResource("2_41eg0")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_og0pm")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_r6puf")
+
+[node name="HurtBox" parent="." index="2"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 5)
+
+[editable path="HurtBox"]

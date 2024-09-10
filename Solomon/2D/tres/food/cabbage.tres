@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cx0thqyqe6n73"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_02gsd"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="2_p0vf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fav7p"]
+atlas = ExtResource("2_p0vf7")
+region = Rect2(2, 49, 13, 13)
+
+[resource]
+script = ExtResource("1_02gsd")
+texture = SubResource("AtlasTexture_fav7p")
+name = "Cabbage"
+ChineseName = "卷心菜"
+description = "卷心菜"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+material = {}

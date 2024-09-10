@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://1vj43t3hxfto"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_71dfq"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="2_ds3bg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hfy7"]
+atlas = ExtResource("2_ds3bg")
+region = Rect2(176, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_71dfq")
+texture = SubResource("AtlasTexture_1hfy7")
+name = "seed_tomato"
+ChineseName = "西红柿种子"
+description = "西红柿种子"
+stackable = true
+maxStack = 99
+style = 1
+data = {}
+material = {}

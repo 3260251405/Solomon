@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://lwrudx2mcavy"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_5gckx"]
+[ext_resource type="Texture2D" uid="uid://cqmx7j6txihul" path="res://assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png" id="2_61534"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iq5b"]
+atlas = ExtResource("2_61534")
+region = Rect2(0, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_5gckx")
+texture = SubResource("AtlasTexture_6iq5b")
+name = "Gold"
+ChineseName = "黄金"
+description = "非常珍贵，制作各类物品必不可少的材料"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {}

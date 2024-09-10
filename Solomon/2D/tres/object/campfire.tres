@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://brxk61dsbk8u8"]
+
+[ext_resource type="Resource" uid="uid://bqrr1nhyqnbyd" path="res://2D/tres/material/wood.tres" id="2_tymdc"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_rp1dn"]
+[ext_resource type="Texture2D" uid="uid://dmlelxerga8ou" path="res://assets/Campfire36.png" id="4_2erdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtvsp"]
+atlas = ExtResource("4_2erdh")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_rp1dn")
+texture = SubResource("AtlasTexture_xtvsp")
+name = "CampFire"
+ChineseName = "营火"
+description = "靠近火源可以制作更多的食物！"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 5
+data = {}
+material = {
+ExtResource("2_tymdc"): 3
+}

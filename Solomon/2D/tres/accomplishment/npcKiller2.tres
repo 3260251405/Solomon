@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://cpti371iuod00"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_b3s4d"]
+[ext_resource type="Texture2D" uid="uid://bk0qo181ms50s" path="res://assets/icon/blood.bmp" id="2_y1pyk"]
+
+[resource]
+script = ExtResource("1_b3s4d")
+texture = ExtResource("2_y1pyk")
+name = "杀戮成性"
+description = "单局游戏内击杀50个NPC"

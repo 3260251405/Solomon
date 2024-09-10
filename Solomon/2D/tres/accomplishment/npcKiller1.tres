@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://cyoqpym6g8wyx"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_atnpm"]
+[ext_resource type="Texture2D" uid="uid://bk0qo181ms50s" path="res://assets/icon/blood.bmp" id="2_domr4"]
+
+[resource]
+script = ExtResource("1_atnpm")
+texture = ExtResource("2_domr4")
+name = "不讲武德"
+description = "单局游戏内击杀20个NPC"

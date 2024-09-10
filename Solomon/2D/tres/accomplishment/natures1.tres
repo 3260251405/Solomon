@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=4 format=3 uid="uid://deywwhfchk4k8"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_itw6c"]
+[ext_resource type="Texture2D" uid="uid://duk0npltpi2ga" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_oukvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s33k6"]
+atlas = ExtResource("2_oukvx")
+region = Rect2(80, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_itw6c")
+texture = SubResource("AtlasTexture_s33k6")
+name = "基建大王"
+description = "单局游戏内采集50次资源"

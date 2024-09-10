@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://bshceqxaaawcu"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_bk4yf"]
+[ext_resource type="Texture2D" uid="uid://mhjc3kflwip7" path="res://assets/icon/langya.png" id="2_rkelm"]
+
+[resource]
+script = ExtResource("1_bk4yf")
+texture = ExtResource("2_rkelm")
+name = "哥布林毁灭者"
+description = "击杀一次哥布林王"

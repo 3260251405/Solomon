@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://cm8kgvu853jpe"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_t8rd0"]
+[ext_resource type="Texture2D" uid="uid://bsx0kddmd2lq5" path="res://assets/icon/game.png" id="2_eqnvx"]
+
+[resource]
+script = ExtResource("1_t8rd0")
+texture = ExtResource("2_eqnvx")
+name = "游戏菜鸟"
+description = "在第一天死亡"

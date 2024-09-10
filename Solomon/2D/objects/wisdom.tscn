@@ -1,0 +1,58 @@
+[gd_scene load_steps=12 format=3 uid="uid://cdtgmllvv83d1"]
+
+[ext_resource type="PackedScene" uid="uid://c14cws0sjjtod" path="res://2D/objects/stuff.tscn" id="1_eu4im"]
+[ext_resource type="Script" path="res://2D/objects/wisdom.gd" id="2_0xtf1"]
+[ext_resource type="Texture2D" uid="uid://do6r20s04gp4p" path="res://assets/Crystal_Animation/Blue/blue_crystal_0000.png" id="2_1veid"]
+[ext_resource type="Texture2D" uid="uid://pwrt2en2pwjr" path="res://assets/Crystal_Animation/Blue/blue_crystal_0001.png" id="3_w713h"]
+[ext_resource type="Texture2D" uid="uid://bnxfnx2d0yhcj" path="res://assets/Crystal_Animation/Blue/blue_crystal_0002.png" id="4_mykpo"]
+[ext_resource type="Texture2D" uid="uid://b2cn1kh1gp0xx" path="res://assets/Crystal_Animation/Blue/blue_crystal_0003.png" id="5_2u80o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gomp1"]
+atlas = ExtResource("2_1veid")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pvtk"]
+atlas = ExtResource("3_w713h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3idth"]
+atlas = ExtResource("4_mykpo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywkgb"]
+atlas = ExtResource("5_2u80o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuj3u"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gomp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pvtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3idth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywkgb")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 4.0
+}]
+
+[node name="Wisdom" instance=ExtResource("1_eu4im")]
+script = ExtResource("2_0xtf1")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_nuj3u")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.121966

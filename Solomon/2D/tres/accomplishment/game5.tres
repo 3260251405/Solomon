@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://b0fpyd6j2es5r"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_wpeh6"]
+[ext_resource type="Texture2D" uid="uid://bsx0kddmd2lq5" path="res://assets/icon/game.png" id="2_acaxh"]
+
+[resource]
+script = ExtResource("1_wpeh6")
+texture = ExtResource("2_acaxh")
+name = "游戏大神"
+description = "生存100天"

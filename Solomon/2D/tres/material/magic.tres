@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfqsclx0hhl3q"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_06y7o"]
+[ext_resource type="Texture2D" uid="uid://nqvd7aae6e5r" path="res://assets/Effects Pack 12/2/1.png" id="2_tf3nd"]
+
+[resource]
+script = ExtResource("1_06y7o")
+texture = ExtResource("2_tf3nd")
+name = "Magic"
+ChineseName = "魔力精华"
+description = "非常非常非常珍贵的材料"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {}

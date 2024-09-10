@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dhnttvf5fbq3p"]
+
+[ext_resource type="Resource" uid="uid://lwrudx2mcavy" path="res://2D/tres/material/gold.tres" id="1_1gch7"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_kdog4"]
+[ext_resource type="Texture2D" uid="uid://cqmx7j6txihul" path="res://assets/Cute_Fantasy_Free/Outdoor decoration/Outdoor_Decor_Free.png" id="2_6pqfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mbwk"]
+atlas = ExtResource("2_6pqfk")
+region = Rect2(32, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_kdog4")
+texture = SubResource("AtlasTexture_0mbwk")
+name = "GoldIngot"
+ChineseName = "金锭"
+description = "非常珍贵，用来制作高级物品"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 2
+data = {}
+material = {
+ExtResource("1_1gch7"): 3
+}

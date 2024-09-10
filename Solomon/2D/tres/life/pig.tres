@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cnp8ht2her7i7"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_22a2s"]
+[ext_resource type="Texture2D" uid="uid://c6udwmsjxnith" path="res://assets/animal/pig.png" id="2_57xky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwxu4"]
+atlas = ExtResource("2_57xky")
+region = Rect2(10, 28, 28, 34)
+
+[resource]
+script = ExtResource("1_22a2s")
+texture = SubResource("AtlasTexture_cwxu4")
+name = "Pig"
+ChineseName = "猪"
+description = "全身都是宝"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 6
+data = {}
+material = {}

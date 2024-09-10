@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://7p3sgy02pjpw"]
+
+[ext_resource type="PackedScene" uid="uid://gqjod0s0wgeu" path="res://2D/character/life.tscn" id="1_bbucx"]
+[ext_resource type="Script" path="res://2D/script/character/monster.gd" id="2_mnqvb"]
+[ext_resource type="Script" path="res://2D/script/states/StateMachine.gd" id="3_2y23d"]
+[ext_resource type="Script" path="res://2D/script/states/monster/monster_idle.gd" id="4_2fm4q"]
+[ext_resource type="Script" path="res://2D/script/states/monster/monster_walk.gd" id="5_oj1kr"]
+[ext_resource type="Script" path="res://2D/script/states/monster/monster_attack.gd" id="6_m6vvn"]
+[ext_resource type="Script" path="res://2D/script/states/monster/monster_death.gd" id="7_apwk3"]
+
+[node name="Monster" groups=["monster"] instance=ExtResource("1_bbucx")]
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("2_mnqvb")
+
+[node name="Bar" parent="." index="4"]
+position = Vector2(-20, -30)
+
+[node name="StateMachine" type="Node2D" parent="." index="5"]
+script = ExtResource("3_2y23d")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("4_2fm4q")
+
+[node name="Walk" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("5_oj1kr")
+
+[node name="Attack" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("6_m6vvn")
+
+[node name="Death" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("7_apwk3")
+
+[node name="HurtBox" parent="Areaes" index="0"]
+collision_layer = 200
+
+[node name="Find" type="Area2D" parent="Areaes" index="2"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areaes/Find" index="0"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Audios" index="1"]
+max_distance = 300.0
+bus = &"SFX"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
+
+[node name="Timer" type="Timer" parent="." index="9"]
+wait_time = 1.5
+autostart = true
+
+[connection signal="body_entered" from="Areaes/Find" to="." method="_on_find_body_entered"]
+[connection signal="body_exited" from="Areaes/Find" to="." method="_on_find_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

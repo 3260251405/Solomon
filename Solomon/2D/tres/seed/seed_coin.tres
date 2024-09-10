@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://o2hf3cnn0l27"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_sswse"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="2_ayyio"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hfy7"]
+atlas = ExtResource("2_ayyio")
+region = Rect2(176, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_sswse")
+texture = SubResource("AtlasTexture_1hfy7")
+name = "seed_coin"
+ChineseName = "玉米种子"
+description = "玉米种子"
+stackable = true
+maxStack = 99
+style = 1
+data = {}
+material = {}

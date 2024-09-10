@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://d1i8qbcax4hn6"]
+
+[ext_resource type="Resource" uid="uid://bqrr1nhyqnbyd" path="res://2D/tres/material/wood.tres" id="1_j06yd"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_wss44"]
+[ext_resource type="Texture2D" uid="uid://dv5361bjfknp7" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_tools_and_meterials.png" id="2_subts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8mn1"]
+atlas = ExtResource("2_subts")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_wss44")
+texture = SubResource("AtlasTexture_u8mn1")
+name = "Stick"
+ChineseName = "木棍"
+description = "木棍，木头制作而来"
+stackable = true
+maxStack = 99
+amount = 2
+needFire = false
+style = 2
+data = {}
+material = {
+ExtResource("1_j06yd"): 1
+}

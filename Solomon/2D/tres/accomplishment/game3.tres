@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://cksjom88lsu1y"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_kdc5e"]
+[ext_resource type="Texture2D" uid="uid://bsx0kddmd2lq5" path="res://assets/icon/game.png" id="2_3wg4o"]
+
+[resource]
+script = ExtResource("1_kdc5e")
+texture = ExtResource("2_3wg4o")
+name = "游戏糕手"
+description = "生存30天"

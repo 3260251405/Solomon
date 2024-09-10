@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://d36angdtyf3ef"]
+
+[ext_resource type="Script" path="res://2D/script/scenes/world.gd" id="1_srm21"]
+[ext_resource type="TileSet" uid="uid://c7fsrij6o3hh5" path="res://tres/tileset.tres" id="2_g1x5b"]
+[ext_resource type="PackedScene" uid="uid://pr1pvbcdxmm0" path="res://2D/ui/game_menu.tscn" id="3_nymvl"]
+[ext_resource type="AudioStream" uid="uid://d2inoag8o4uvr" path="res://assets/audio/1 - Adventure Begin.ogg" id="4_1gbh8"]
+[ext_resource type="PackedScene" uid="uid://c2ey6yrfuq65p" path="res://2D/ui/accom_shower.tscn" id="4_1ufa6"]
+[ext_resource type="AudioStream" uid="uid://doag4q4u1pmtf" path="res://assets/audio/gambit.mp3" id="4_hkkxw"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_srm21")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("2_g1x5b")
+format = 2
+layer_0/name = "Ground"
+layer_1/name = "Environment"
+layer_1/y_sort_enabled = true
+layer_1/z_index = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="Envir" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="People" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Monster" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Object" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Plants" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Animals" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Drops" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="Day" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.0901961, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Day1"
+
+[node name="GameMenu" parent="CanvasLayer" instance=ExtResource("3_nymvl")]
+visible = false
+
+[node name="PanelContainer" parent="CanvasLayer" instance=ExtResource("4_1ufa6")]
+visible = false
+offset_top = -35.0
+offset_bottom = 26.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MonsterTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="AttackBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hkkxw")
+bus = &"BGM"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1gbh8")
+volume_db = -10.0
+bus = &"BGM"
+
+[connection signal="timeout" from="MonsterTimer" to="." method="_on_monster_timer_timeout"]

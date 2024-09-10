@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5mqevrn2si1q"]
+
+[ext_resource type="Script" path="res://2D/ui/item_slot.gd" id="1_jiskl"]
+[ext_resource type="Texture2D" uid="uid://j0lk3vxpjgto" path="res://assets/food/Yakitori.png" id="1_kc4tf"]
+
+[node name="ItemSlot" type="HBoxContainer"]
+script = ExtResource("1_jiskl")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.407843, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+icon = ExtResource("1_kc4tf")
+alignment = 2
+icon_alignment = 1
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemProfile" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Name" type="Label" parent="VBoxContainer/ItemProfile"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+text = "糖葫芦"
+
+[node name="MaterialSlot" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

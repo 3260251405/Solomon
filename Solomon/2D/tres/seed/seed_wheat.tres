@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c8aihny1wc8ky"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_aqgvj"]
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="2_6a0j4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsqy0"]
+atlas = ExtResource("2_6a0j4")
+region = Rect2(176, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_aqgvj")
+texture = SubResource("AtlasTexture_xsqy0")
+name = "seed_wheat"
+ChineseName = "小麦种子"
+description = "小麦种子"
+stackable = true
+maxStack = 99
+style = 1
+data = {}
+material = {}

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://crwvc7or04e2k"]
+
+[ext_resource type="Resource" uid="uid://cvbgxmy2j0m8f" path="res://2D/tres/material/stone.tres" id="1_wbxuf"]
+[ext_resource type="Resource" uid="uid://cn0r8fkwginbj" path="res://2D/tres/material/plank.tres" id="2_rrinb"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_ilhyb"]
+[ext_resource type="Resource" uid="uid://d0eqdhad7d54o" path="res://2D/tres/material/sand.tres" id="3_k30ov"]
+[ext_resource type="Resource" uid="uid://c30aqghj7xsjg" path="res://2D/tres/food/meat.tres" id="4_8dtf6"]
+[ext_resource type="Texture2D" uid="uid://xx54kjj37n4" path="res://assets/weapon/capture.png" id="6_dxbam"]
+
+[resource]
+script = ExtResource("3_ilhyb")
+texture = ExtResource("6_dxbam")
+name = "Capture"
+ChineseName = "精灵球"
+description = "抓捕动物，去吧皮卡丘~"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_wbxuf"): 5,
+ExtResource("2_rrinb"): 2,
+ExtResource("3_k30ov"): 1,
+ExtResource("4_8dtf6"): 5
+}

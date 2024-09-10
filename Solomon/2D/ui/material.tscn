@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://o5lr05vdb8ky"]
+
+[ext_resource type="Texture2D" uid="uid://bpv2teya7l0iu" path="res://assets/tilemap1.png" id="1_4eaih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m0ej"]
+atlas = ExtResource("1_4eaih")
+region = Rect2(225, 17, 13, 11)
+
+[node name="Material" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2m0ej")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "x2"

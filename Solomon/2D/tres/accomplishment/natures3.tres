@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=4 format=3 uid="uid://djshe4cxt4qa0"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_xr323"]
+[ext_resource type="Texture2D" uid="uid://duk0npltpi2ga" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="2_xhd5g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s33k6"]
+atlas = ExtResource("2_xhd5g")
+region = Rect2(80, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_xr323")
+texture = SubResource("AtlasTexture_s33k6")
+name = "基建之神"
+description = "单局游戏内采集200次资源"

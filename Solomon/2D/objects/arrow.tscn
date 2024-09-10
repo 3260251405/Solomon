@@ -1,22 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://cituhyj665byi"]
 
-[ext_resource type="Script" path="res://Arrow.gd" id="1_wf7hd"]
-[ext_resource type="Texture2D" uid="uid://ct8seprnn36h2" path="res://assets/Ninja Adventure - Asset Pack/Items/Weapons/Bow/Arrow.png" id="2_u8s1k"]
+[ext_resource type="Script" path="res://2D/script/objects/Arrow.gd" id="1_akwvw"]
+[ext_resource type="Texture2D" uid="uid://tefspxg3cqcg" path="res://assets/weapon/Arrow.png" id="2_ecdud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn2te"]
 size = Vector2(13, 5)
 
 [node name="Arrow" type="Area2D"]
 top_level = true
-script = ExtResource("1_wf7hd")
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_akwvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_u8s1k")
+texture = ExtResource("2_ecdud")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_nn2te")
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="hit" from="." to="." method="_on_hit"]

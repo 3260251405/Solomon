@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://bl7pqjsg122ka"]
+
+[ext_resource type="Resource" uid="uid://lwrudx2mcavy" path="res://2D/tres/material/gold.tres" id="1_pokjy"]
+[ext_resource type="Resource" uid="uid://cvbgxmy2j0m8f" path="res://2D/tres/material/stone.tres" id="2_3uw3c"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="2_je0et"]
+[ext_resource type="Resource" uid="uid://cn0r8fkwginbj" path="res://2D/tres/material/plank.tres" id="3_3g8oo"]
+[ext_resource type="Texture2D" uid="uid://do6r20s04gp4p" path="res://assets/Crystal_Animation/Blue/blue_crystal_0000.png" id="3_ait8v"]
+
+[resource]
+script = ExtResource("2_je0et")
+texture = ExtResource("3_ait8v")
+name = "Wisdom"
+ChineseName = "智慧之石"
+description = "可以解锁更多高级道具！"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 5
+data = {}
+material = {
+ExtResource("1_pokjy"): 5,
+ExtResource("2_3uw3c"): 10,
+ExtResource("3_3g8oo"): 20
+}

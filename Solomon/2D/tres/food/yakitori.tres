@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://o4akdxb5eo3g"]
+
+[ext_resource type="Resource" uid="uid://dt1k3tadgcl1b" path="res://2D/tres/food/tomato.tres" id="1_8kqq0"]
+[ext_resource type="Resource" uid="uid://8amney47fory" path="res://2D/tres/food/egg.tres" id="2_us705"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_55t0p"]
+[ext_resource type="Texture2D" uid="uid://j0lk3vxpjgto" path="res://assets/food/Yakitori.png" id="4_xerip"]
+
+[resource]
+script = ExtResource("3_55t0p")
+texture = ExtResource("4_xerip")
+name = "Yakitori"
+ChineseName = "糖葫芦"
+description = "甜甜的糖葫芦，可以回复大量生命值"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 30,
+"hv": 10,
+"speed": 2
+}
+material = {
+ExtResource("1_8kqq0"): 5,
+ExtResource("2_us705"): 2
+}

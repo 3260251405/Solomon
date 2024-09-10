@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://dirsvnohv135r"]
+
+[ext_resource type="Resource" uid="uid://cvbgxmy2j0m8f" path="res://2D/tres/material/stone.tres" id="1_wfu4c"]
+[ext_resource type="Resource" uid="uid://d1i8qbcax4hn6" path="res://2D/tres/material/stick.tres" id="2_gdnqu"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_c53ku"]
+[ext_resource type="Texture2D" uid="uid://b4bdl3v8kklpn" path="res://assets/weapon/Sprite.png" id="4_ytiv3"]
+
+[resource]
+script = ExtResource("3_c53ku")
+texture = ExtResource("4_ytiv3")
+name = "Hammer"
+ChineseName = "锤子"
+description = "摧毁建筑物，一锤八十"
+stackable = false
+maxStack = 0
+amount = 7
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_wfu4c"): 6,
+ExtResource("2_gdnqu"): 3
+}

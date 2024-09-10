@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dj202ofojf4pm"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_ymsdd"]
+[ext_resource type="Texture2D" uid="uid://6fynmfyleno5" path="res://assets/free version/free.png" id="2_w6jpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d1nd"]
+atlas = ExtResource("2_w6jpt")
+region = Rect2(176, 128, 16, 16)
+
+[resource]
+script = ExtResource("1_ymsdd")
+texture = SubResource("AtlasTexture_4d1nd")
+name = "Potato"
+ChineseName = "土豆"
+description = "土豆"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 10,
+"hv": 20
+}
+material = {}

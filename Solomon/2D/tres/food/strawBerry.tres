@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dle5ed4flxpoq"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_e66oj"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="2_ud10p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asqrs"]
+atlas = ExtResource("2_ud10p")
+region = Rect2(160, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_e66oj")
+texture = SubResource("AtlasTexture_asqrs")
+name = "StrawBerry"
+ChineseName = "草莓"
+description = "草莓"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+material = {}

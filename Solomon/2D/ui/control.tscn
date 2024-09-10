@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://vpbwou5vhtyf"]
+
+[ext_resource type="Texture2D" uid="uid://co1rsnslxy15v" path="res://assets/weapon/Sword.png" id="1_atx8n"]
+[ext_resource type="Script" path="res://2D/script/ui/control.gd" id="1_h0vq4"]
+[ext_resource type="Texture2D" uid="uid://c7abcf3swqw7k" path="res://assets/Cute_Fantasy_Free/Outdoor decoration/Chest.png" id="1_ogee6"]
+[ext_resource type="Texture2D" uid="uid://poipa2wr4per" path="res://assets/food/Noodle.png" id="2_7ewsb"]
+[ext_resource type="Texture2D" uid="uid://c8adxj0flanjj" path="res://assets/object/LifePot.png" id="4_kvjyc"]
+
+[node name="Control" type="PanelContainer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -130.0
+offset_bottom = 130.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+script = ExtResource("1_h0vq4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 33
+
+[node name="Food" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+icon = ExtResource("2_7ewsb")
+icon_alignment = 1
+
+[node name="Tool" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+icon = ExtResource("1_atx8n")
+icon_alignment = 1
+
+[node name="Object" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+icon = ExtResource("1_ogee6")
+icon_alignment = 1
+
+[node name="Other" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+icon = ExtResource("4_kvjyc")
+icon_alignment = 1
+
+[node name="FoodPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/FoodPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/FoodPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ToolPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/ToolPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ToolPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ObjectPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/ObjectPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ObjectPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="OtherPanel" type="Panel" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/OtherPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/OtherPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Food" to="." method="_on_food_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Tool" to="." method="_on_tool_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Object" to="." method="_on_object_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Other" to="." method="_on_other_pressed"]

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://8amney47fory"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_pibov"]
+[ext_resource type="Texture2D" uid="uid://bic1wvieded26" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="2_m6yqj"]
+
+[resource]
+script = ExtResource("1_pibov")
+texture = ExtResource("2_m6yqj")
+name = "Egg"
+ChineseName = "鸡蛋"
+description = "坤坤下的蛋，黑子不准吃"
+stackable = true
+maxStack = 99
+amount = 0
+needFire = false
+style = 0
+data = {
+"hp": 10,
+"hv": 5
+}
+material = {}

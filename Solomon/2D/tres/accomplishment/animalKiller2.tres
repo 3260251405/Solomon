@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AccomplishMent" load_steps=3 format=3 uid="uid://5tomb685hhwn"]
+
+[ext_resource type="Script" path="res://class_accomplishment.gd" id="1_yfcae"]
+[ext_resource type="Texture2D" uid="uid://cum4bfsqsm5pb" path="res://assets/icon/bone.png" id="2_hyt3s"]
+
+[resource]
+script = ExtResource("1_yfcae")
+texture = ExtResource("2_hyt3s")
+name = "动物杀手2"
+description = "单局游戏内击杀50个动物"

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Item" load_steps=6 format=3 uid="uid://d4kxyupqtowqs"]
+
+[ext_resource type="Resource" uid="uid://lwrudx2mcavy" path="res://2D/tres/material/gold.tres" id="1_as5eu"]
+[ext_resource type="Resource" uid="uid://cfqsclx0hhl3q" path="res://2D/tres/material/magic.tres" id="2_qumrb"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_3rh3u"]
+[ext_resource type="Texture2D" uid="uid://dpu2weexjn0k4" path="res://assets/32x32 Portal Asset Pack/32x32 Portal Asset Pack/portal5_spritesheet.png" id="4_jud33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhge7"]
+atlas = ExtResource("4_jud33")
+region = Rect2(33, 0, 29, 32)
+
+[resource]
+script = ExtResource("3_3rh3u")
+texture = SubResource("AtlasTexture_fhge7")
+name = "Portal"
+ChineseName = "传送门"
+description = "建立一个快捷的通道"
+stackable = false
+maxStack = 0
+amount = 1
+needFire = false
+style = 3
+data = {}
+material = {
+ExtResource("1_as5eu"): 5,
+ExtResource("2_qumrb"): 2
+}

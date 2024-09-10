@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://w5qodbpouvgx"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_a0krv"]
+[ext_resource type="Texture2D" uid="uid://cvosexcdbngvo" path="res://assets/food/Fish.png" id="2_xlaae"]
+
+[resource]
+script = ExtResource("1_a0krv")
+texture = ExtResource("2_xlaae")
+name = "Fish"
+ChineseName = "鱼"
+description = "鱼"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+material = {}

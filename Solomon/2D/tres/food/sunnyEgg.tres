@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://violjxsf4hlg"]
+
+[ext_resource type="Resource" uid="uid://8amney47fory" path="res://2D/tres/food/egg.tres" id="2_6lbho"]
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="3_drb7y"]
+[ext_resource type="Texture2D" uid="uid://cle0tv4mhebjp" path="res://assets/food/Eggs.png" id="3_q3uuq"]
+
+[resource]
+script = ExtResource("3_drb7y")
+texture = ExtResource("3_q3uuq")
+name = "SunnyEgg"
+ChineseName = "荷包蛋"
+description = "半生熟的荷包蛋才是最美味的！"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = true
+style = 0
+data = {
+"attackValue": 2,
+"hp": 30,
+"hv": 10
+}
+material = {
+ExtResource("2_6lbho"): 3
+}

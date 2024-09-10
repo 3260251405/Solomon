@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://b6p67qpxmmler"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_7v4gv"]
+[ext_resource type="Resource" uid="uid://cqbjtjt2iql65" path="res://2D/tres/food/fishFillet.tres" id="1_rhv78"]
+[ext_resource type="Resource" uid="uid://bbxd1itsd1oip" path="res://2D/tres/food/rice.tres" id="2_24mye"]
+[ext_resource type="Texture2D" uid="uid://dtqwpfgy6qmtx" path="res://assets/food/Sushi.png" id="4_xw6o4"]
+
+[resource]
+script = ExtResource("1_7v4gv")
+texture = ExtResource("4_xw6o4")
+name = "Sushi"
+ChineseName = "寿司"
+description = "好吃的寿司"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"attackValue": 3,
+"hp": 20,
+"hv": 20,
+"speed": 3
+}
+material = {
+ExtResource("1_rhv78"): 2,
+ExtResource("2_24mye"): 1
+}

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ywr8udmq5484"]
+
+[ext_resource type="Script" path="res://2D/inventory/class_item.gd" id="1_xjiow"]
+[ext_resource type="Texture2D" uid="uid://c2ks8jdwv8w62" path="res://assets/free version/farmingTilesheetComplete.png" id="2_uwo50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucela"]
+atlas = ExtResource("2_uwo50")
+region = Rect2(80, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_xjiow")
+texture = SubResource("AtlasTexture_ucela")
+name = "turnip"
+ChineseName = "白萝卜"
+description = "白萝卜"
+stackable = true
+maxStack = 99
+amount = 1
+needFire = false
+style = 0
+data = {
+"hp": 5,
+"hv": 10
+}
+material = {}
